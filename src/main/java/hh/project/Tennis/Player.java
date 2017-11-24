@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Player {
 
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue Long Id;
     private String firstName;
     private String lastName;
     private String surface;
@@ -23,7 +23,7 @@ public class Player {
     @Data helps with getter and setters, generates it automatically
     */
 
-    private Player(){}
+    public Player(){}
 
     public Player(String firstName, String lastName,String surface, int points) {
         this.firstName = firstName;

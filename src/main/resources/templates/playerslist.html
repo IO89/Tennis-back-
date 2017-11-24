@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" th:href="@{css/bootstrap.css}"/>
+    <title>Tennis players</title>
+</head>
+<body>
+<div class="col-md-4">
+    <h1>Tennis players list</h1>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Surface</th>
+        <th>Points</th>
+    </tr>
+    <tr th:each="player: ${playerlist}">
+        <td th:text="${player.firstName}"></td>
+        <td th:text="${player.lastName}"></td>
+        <td th:text="${player.surface}"></td>
+        <td th:text="${player.points}"></td>
+    </tr>
+</table>
+<div>
+    <a class="btn btn-info" href="addplayer.html">Add Player</a>
+</div>
+
+</body>
+</html>
