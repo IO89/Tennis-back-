@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+    <title>Tennis players</title>
+</head>
+<body>
+
+<h1>Tennis players list</h1>
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Surface</th>
+        <th>Points</th>
+    </tr>
+    <tr th:each="player: ${playerlist}">
+        <td th:text="${player.firstName}"></td>
+        <td th:text="${player.lastName}"></td>
+        <td th:text="${player.surface}"></td>
+        <td th:text="${player.points}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
