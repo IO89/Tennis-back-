@@ -1,4 +1,4 @@
-package hh.project.Tennis;
+package hh.project.Tennis.domain;
 
 
 import lombok.Data;

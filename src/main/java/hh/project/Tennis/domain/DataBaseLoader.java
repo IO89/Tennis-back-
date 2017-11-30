@@ -1,4 +1,4 @@
-package hh.project.Tennis;
+package hh.project.Tennis.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

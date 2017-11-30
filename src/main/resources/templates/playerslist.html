@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css" th:href="@{css/bootstrap.css}"/>
     <title>Tennis players</title>
@@ -21,11 +21,15 @@
         <td th:text="${player.lastName}"></td>
         <td th:text="${player.surface}"></td>
         <td th:text="${player.points}"></td>
+        <td><a th:href="@{/delete/{id}(id=${player.id})}">Delete</a></td>
+        <td><a th:href="@{/edit/{id} (id=${player.id})}">Edit</a></td>
+
     </tr>
+
+
 </table>
 <div>
     <a class="btn btn-info" href="addplayer.html">Add Player</a>
 </div>
-
 </body>
 </html>

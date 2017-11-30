@@ -1,7 +1,9 @@
-package hh.project.Tennis;
+package hh.project.Tennis.web;
 
+import hh.project.Tennis.domain.Player;
+import hh.project.Tennis.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,10 +26,11 @@ public class HomeController {
     @RequestMapping(value = "/playerslist")
     public String  index(Model model){
         List<Player> playerList = new ArrayList<>();
-        model.addAttribute("playerlist",repository.findAll());
+        model.addAttribute("playerlist",repository.OrderByPointsDesc());
         return "playerslist";
     }
     //Add player(reuquire role admin)
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     @RequestMapping(value="/addplayer")
     public String addPlayer(Model model){
         model.addAttribute("player",new Player());
@@ -52,6 +55,12 @@ public class HomeController {
         model.addAttribute("player",repository.findOne(Id));
         return "editplayer";
     }
+    //Select random opponent
+   /* @RequestMapping(value = "/random/{Id}",method = RequestMethod.GET)
+    public String randomPlayer(@PathVariable("Id") Long Id, Model model){
+        model.addAttribute("player",repository.findPlayerByFirstName());
+        return
+    }*/
     //Restful service?
     @RequestMapping(value = "/players",method = RequestMethod.GET)
     public @ResponseBody
@@ -61,7 +70,7 @@ public class HomeController {
     public @ResponseBody
     Player findPlayerREST(@PathVariable("Id") Long Id){return repository.findOne(Id);}
 
-    /*//Adiing Login to Controller
+ /*   //Adiing Login to Controller
     @RequestMapping(value = "/login")
     public String login() {
         return "login";

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+    <title>Edit Players</title>
+</head>
+<body>
+<h1>Edit Players</h1>
+<div>
+    <form th:object="${player}" th:action="@{/save}" action="#" method="post">
+        <input type="hidden" id="id" th:field="*{id}"/>
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" th:field="*{firstName}"/>
+        </div>
+
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" th:field="*{lastName}"/>
+        </div>
+
+        <div>
+        <label for="surface">Surface</label>
+        <input type="text" id="surface" th:field="*{surface}"/>
+        </div>
+        <div>
+        <label for="points">ISBN</label>
+        <input type="text" id="points" th:field="*{points}"/>
+        </div>
+        <input class="btn btn-success" type="submit"  value="Save"/>
+    </form>
+    <a class="btn btn-success" href="/playerslist">Show Players</a>
+</div>
+</body>
+</html>
