@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" th:href="@{css/bootstrap.css}"/>
+    <title>Sign up</title>
+</head>
+<body>
+<h1>Sign up form</h1>
+<div class="col-md-4">
+    <form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
+        <div>
+            <label>User name: <input type="text" th:field="*{username}" class="form-control"/></label>
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Wrong username</p>
+
+            <label>Password: <input type="password" th:field="*{password}" class="form-control"/> </label>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Wrong password</p>
+
+            <label>Re-enter password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+            <p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password does not match</p>
+        </div>
+        <input type="submit" class="btn btn-success" value="Signup"/>
+    </form>
+</div>
+</body>
+</html>

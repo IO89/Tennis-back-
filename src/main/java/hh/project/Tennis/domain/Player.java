@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Player {
 
-    private @Id @GeneratedValue Long Id;
+   private @Id @GeneratedValue Long Id;
     private String firstName;
     private String lastName;
     private String surface;
@@ -30,5 +30,13 @@ public class Player {
         this.lastName = lastName;
         this.surface = surface;
         this.points = points;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public Long getId() {
+        return Id;
     }
 }

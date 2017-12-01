@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+    <title>Random player</title>
+</head>
+<body>
+<div class="col-md-4">
+    <h1>Random opponent</h1>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Surface</th>
+        <th>Points</th>
+    </tr>
+    <tr th:each="player: ${playerlist}">
+        <td th:text="${player.firstName}"></td>
+        <td th:text="${player.lastName}"></td>
+        <td th:text="${player.surface}"></td>
+        <td th:text="${player.points}"></td>
+    </tr>
+
+
+</table>
+<div>
+    <a class="btn btn-success" href="/playerslist">Show Players</a>
+</div>
+</body>
+</html>

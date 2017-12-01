@@ -15,8 +15,7 @@ public class DataBaseLoader implements CommandLineRunner {
     }
     @Override
     public void run(String... strings) throws Exception{
-        this.repository.save(new Player("Eduardo","Cortizo","Hard",68));
-        this.repository.save(new Player("Pasha","Zabelin","Hard(i)",56));
+
         this.repository.save(new Player("Anna","Bibilashvili","Clay",45));
         this.repository.save(new Player("Maria","Loktionova","Hard",34));
         this.repository.save(new Player("Ivan","Osipov","Hard(i)",7));
